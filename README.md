@@ -1,117 +1,152 @@
-Credit Card Fraud Detection (Operations & Analytics Project)
-Business Problem
+💳 Credit Card Fraud Detection
 
-In large-scale e-commerce platforms, fraudulent credit card transactions lead to revenue loss, chargebacks, increased operational cost, and poor customer experience.
-The objective of this project is to identify fraudulent transactions using data analysis and machine learning, while maintaining a balance between fraud prevention and genuine customer flow.
+End-to-End Machine Learning Project | Imbalanced Classification
 
-This problem closely mirrors real-world Flipkart-scale transaction analytics, where fraud cases are extremely rare but highly impactful.
+📌 Project Overview
 
-Project Objective
+This project focuses on building a robust fraud detection system using machine learning techniques to identify fraudulent credit card transactions.
+Given the extreme class imbalance inherent in real-world fraud datasets, the project emphasizes model selection, evaluation metrics, and risk-aware decision making rather than raw accuracy.
 
-Detect fraudulent credit card transactions effectively
+The solution is implemented end-to-end, from data understanding and preprocessing to model training and performance evaluation.
 
-Handle highly imbalanced transaction data
+🧠 Business Problem
 
-Support operational decision-making using data
+Credit card fraud leads to:
 
-Minimize missed fraud cases while controlling false positives
+Significant financial losses
 
-Dataset Overview
+Erosion of customer trust
 
-Transaction-level dataset with anonymized numerical features
+Increased operational costs for banks and payment processors
 
-Target column:
+The objective is to accurately detect fraudulent transactions while minimizing false positives that may block legitimate customers.
 
-0 → Legitimate transaction
+📊 Dataset Description
 
-1 → Fraudulent transaction
+Source: Kaggle – European Cardholders Dataset
 
-Fraud transactions form less than 1% of the total dataset
+Total Transactions: 284,807
 
-Tools & Technologies
+Fraudulent Transactions: ~0.17% (Highly imbalanced)
 
-Python
+Features
 
-Pandas, NumPy – data cleaning and manipulation
+V1 to V28: PCA-transformed, anonymized features
 
-Matplotlib, Seaborn – exploratory data analysis
+Time: Seconds elapsed between transactions
 
-Scikit-learn – model building and evaluation
+Amount: Transaction amount
 
-Approach
-1. Data Preprocessing
+Class: Target variable
 
-Checked for missing values and data quality issues
+0 → Legitimate
 
-Analyzed class imbalance
+1 → Fraud
 
-Standardized features where required
+🛠️ Tech Stack
 
-2. Exploratory Data Analysis
+Language: Python
 
-Compared fraud vs non-fraud transaction patterns
+Libraries:
 
-Identified behavioral differences useful for risk analysis
+NumPy, Pandas – Data manipulation
 
-Insights applicable for operational dashboards
+Matplotlib / Seaborn – Visualization
 
-3. Model Development
+Scikit-learn – Modeling & evaluation
 
-Built and evaluated classification models such as:
+🔄 Project Workflow
 
-Logistic Regression
+Data Loading & Exploration
 
-Decision Tree
+Dataset inspection
 
-Random Forest
+Class imbalance analysis
 
-Models were selected with a focus on business usability, not just accuracy.
+Data Preprocessing
 
-4. Evaluation Metrics
+Feature scaling
 
-Since accuracy is misleading for imbalanced data, the following were used:
+Train-test split with stratification
 
-Precision
+Model Development
 
-Recall
+Logistic Regression (baseline, interpretable model)
 
-F1-Score
+Random Forest Classifier (non-linear, ensemble-based)
+
+Model Evaluation
+
+Precision, Recall, F1-score
 
 Confusion Matrix
 
-Recall was prioritized to reduce undetected fraud and revenue leakage.
+ROC-AUC Score
+(Accuracy intentionally not emphasized due to imbalance)
 
-Key Insights
+🤖 Models Implemented
+1️⃣ Logistic Regression
 
-Fraud detection requires trade-offs between recall and precision
+Serves as a baseline model
 
-High accuracy alone does not indicate a good fraud model
+High interpretability
 
-Missing fraud cases has a higher business cost than flagging some genuine transactions
+Useful for understanding feature influence
 
-These trade-offs reflect real operational decisions in e-commerce risk teams
+Performs reasonably well with proper thresholding
 
-Business & Operational Impact
+2️⃣ Random Forest Classifier
 
-Helps identify high-risk transactions for review
+Captures non-linear relationships
 
-Can be integrated into payment approval or fraud monitoring workflows
+More robust to noise
 
-Provides analytical foundation for risk and operations teams
+Better recall for fraud detection
 
-Project Structure
-├── Credit Card Fraud Detection.ipynb
-├── README.md
+Suitable for real-world deployment scenarios
 
-Author
+📈 Evaluation Metrics Used
+
+Given the business risk of fraud detection, the following metrics are prioritized:
+
+Recall (Fraud Class): Minimize missed frauds
+
+Precision: Reduce false alarms
+
+F1-Score: Balance between precision & recall
+
+ROC-AUC: Overall discriminatory power
+
+📌 Key Insights
+
+Fraud detection is not an accuracy-driven problem
+
+Even simple models can perform well with:
+
+Proper evaluation metrics
+
+Correct handling of class imbalance
+
+Ensemble methods improve fraud recall at the cost of interpretability
+
+📁 Repository Structure
+├── Credit Card Fraud Detection.ipynb   # Complete analysis & modeling
+├── creditcard.csv                      # Dataset
+├── README.md                           # Project documentation
+
+🚀 Future Improvements
+
+Apply SMOTE / undersampling techniques
+
+Experiment with XGBoost / LightGBM
+
+Implement cost-sensitive learning
+
+Deploy as a real-time inference API
+
+Add model explainability (SHAP / LIME)
+
+👩‍💻 Author
 
 Shikha Shetty
-Data Analytics | Operations Analytics
-
-Skills: Python, SQL, Excel, Power BI
-
-Experience: Data Labs Intern at Convin.ai
-
-Portfolio: https://shikhashetty.com
-
-Why This Project Matters
+Aspiring Data Analyst | Machine Learning Enthusiast
